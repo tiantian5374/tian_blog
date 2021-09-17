@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # 个人应用
+    'blog',
+
+    # 系统应用
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

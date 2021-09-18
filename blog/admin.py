@@ -13,6 +13,6 @@ class PostAdmin(admin.ModelAdmin):
 
 
 # 注册模型
-admin.site.register(Post)
+admin.site.register(Post, PostAdmin)
 admin.site.register(Category)
 admin.site.register(Tag)

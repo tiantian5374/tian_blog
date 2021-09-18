@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # 个人应用
     'blog.apps.BlogConfig',
+    'markdown',
 
     # 系统应用
     'django.contrib.admin',

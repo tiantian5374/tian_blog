@@ -58,5 +58,6 @@ class Post(models.Model):
         self.modified_time = timezone.now()
         super().save(*args, **kwargs)
 
+    # 定义详情页路径
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={'pk': self.pk})

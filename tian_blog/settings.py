@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 个人应用
-    'blog',
+    'blog.apps.BlogConfig',
 
     # 系统应用
     'django.contrib.admin',

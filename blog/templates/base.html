@@ -1,4 +1,5 @@
 {% load static %}
+{% load blog_extras %}
 
 <!DOCTYPE html>
 <html>
@@ -107,6 +108,11 @@
             <aside class="col-md-4">
                 {% block toc %}
                 {% endblock toc %}
+
+                {% show_recent_posts %}
+                {% show_archives %}
+                {% show_categories %}
+                {% show_tags %}
             </aside>
         </div>
     </div>

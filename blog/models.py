@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
+from django.utils.html import strip_tags
+
+import markdown
 
 
 class Category(models.Model):
@@ -54,8 +57,20 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    # 重写save方法
     def save(self, *args, **kwargs):
         self.modified_time = timezone.now()
+
+        # 实例化markdown类，用于渲染body，摘要不需要目录，不需要目录拓展
+        md = markdown.Markdown(extensions=[
+            'markdown.extensions.extra',
+            'markdown.extensions.codehilite',
+        ])
+        # strip_tags 去除全部html标签
+        self.excerpt = strip_tags(md.convert(self.body))
+        self.excerpt = (self.excerpt[:54] + ' . . .') \
+                        if len(self.excerpt) > 54 else self.excerpt[:54]
+
         super().save(*args, **kwargs)
 
     # 定义详情页路径

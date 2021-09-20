@@ -32,7 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 个人应用
-    'blog.apps.BlogConfig',
+    'blog.apps.BlogConfig', # 注册blog
+    'comments.apps.CommentsConfig', # 注册comments
+
+    # 第三方应用
     'markdown',
 
     # 系统应用

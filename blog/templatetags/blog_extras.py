@@ -9,7 +9,7 @@ register = template.Library()
                         takes_context=True)
 def show_recent_posts(context, num=5):
     return {
-        'recent_post_list': Post.objects.all().order_by('-created_time')[:num],
+        'recent_post_list': Post.objects.all()[:num],
     }
 
 

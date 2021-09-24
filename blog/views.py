@@ -2,17 +2,19 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.text import slugify
 from markdown.extensions.toc import TocExtension
 from django.views.generic import ListView, DetailView
+from pure_pagination.mixins import PaginationMixin
 import markdown
 import re
 
 from .models import Post, Category, Tag
 
 
-class IndexView(ListView):
+class IndexView(PaginationMixin, ListView):     # 添加PaginationMixin
     # 主页的类视图
     model = Post
     template_name = 'blog/index.html'
     context_object_name = 'post_list'
+    paginate_by = 5     # 代表每页文章数
 """
 def index(request):
     # 主页函数

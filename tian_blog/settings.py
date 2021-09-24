@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 
     # 第三方应用
     'markdown',
+    'pure_pagination',   # 分页
 
     # 系统应用
     'django.contrib.admin',
@@ -131,3 +132,10 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django-pure-pagination 分页设置
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 4,  #  分页条显示的总页数
+    'MARGIN_PAGES_DISPLAYED': 2,    # 分页条开头结尾显示的页数
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,   # 请求不存在页返回第一页
+}
